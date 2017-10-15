@@ -1,8 +1,3 @@
-# LogisticRegression
-This is a test of sklearn's built in logistic regression model.
-
-+Data: built-in iris dataset
-
-+Model: logistic regression
-
-+Performance: 98% accuracy, 1 misclassification
+# Titanic Dataset Analysis
+This is a series of machien learning models that perform classification analysis on the Titanic dataset.
+The Label attribute is whether or not a particular passenger survived the event.
