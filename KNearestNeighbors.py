@@ -25,8 +25,8 @@ def predict(X_train, y_train, x_test, k):
         dist.append([distance, i])
     dist = sorted(dist)
     for k in range(k):
-        index = dist[k][1]
-        neighbors.append(y_train[index])
+        i = dist[k][1]
+        neighbors.append(y_train[i])
     return Counter(neighbors).most_common(1)[0][0]
 
 
@@ -70,17 +70,17 @@ def main():
     
     #Make predictions
     predictions = []
-    neighbors(X_train_std, y_train, X_validation_std, predictions, 11)
+    neighbors(X_train_std, y_train, X_test_std, predictions, 11)
     predictions = numpy.asarray(predictions)
-    results = (y_validation == predictions)
+    results = (y_test == predictions)
     
     #Calculate performance metrics
     misclassified_examples = 0
     for r in results:
-    	if r == False:
-    		misclassified_examples = misclassified_examples + 1
+        if r == False:
+            misclassified_examples = misclassified_examples + 1
     
-    accuracy = 100* accuracy_score(y_validation, predictions)
+    accuracy = 100* accuracy_score(y_test, predictions)
     
     #Print out performance metrics
     print('Accuracy Score: %d' % accuracy + '%')
